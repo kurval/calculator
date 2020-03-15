@@ -66,6 +66,9 @@ int         main(void)
     calc_time(&time, 365, 3);
     calc_time(&time, (365 * time.age), 4);
     ft_printf(BLUE "*life expectancy 80 years\n" RESET);
+    ft_printf(BLUE "*day = 24h\n" RESET);
+    ft_printf(BLUE "*month = 30d\n" RESET);
+    ft_printf(BLUE "*year = 365d\n" RESET);
     free(time.period);
     return (0);
 }
