@@ -65,7 +65,7 @@ int main(void)
     calc_time(&time, 30, 2);
     calc_time(&time, 365, 3);
     calc_time(&time, (365 * time.age), 4);
-    ft_printf(BLUE "*life expectancy 80\n" RESET);
+    ft_printf(BLUE "*life expectancy 80 years\n" RESET);
     free(time.period);
     return (0);
 }
