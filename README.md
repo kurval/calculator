@@ -1,7 +1,7 @@
 # calculator
 Calculates how much time you spend on your phone
 
-![screen print](print_screen.png)
+![screenshot](print_screen.png)
 
 ## usage
 Open terminal and run:
