@@ -6,13 +6,13 @@
 #    By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 11:23:46 by vkurkela          #+#    #+#              #
-#    Updated: 2020/03/14 21:28:35 by vkurkela         ###   ########.fr        #
+#    Updated: 2020/03/15 15:11:44 by vkurkela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = calculator
 
-SRC = calculator.c
+SRC = calculator.c print_result.c read_input.c
 
 OBJ = $(SRC:.c=.o)
 

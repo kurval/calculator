@@ -1,6 +1,4 @@
 #include "calculator.h"
-#include <math.h>
-#include <stdlib.h>
 
 static void init_struct(t_time *time)
 {
@@ -9,6 +7,7 @@ static void init_struct(t_time *time)
     time->period = (t_period*)malloc(sizeof(t_period));
     time->period->hours = 0.0;
     time->period->days = 0;
+    time->period->months = 0;
     time->period->years = 0;
 }
 
@@ -26,6 +25,15 @@ static void count_days(t_time *time)
     }
 }
 
+static void count_months(t_time *time)
+{
+    if (time->period->hours >= 720)
+    {
+        time->period->months = time->period->hours / (double)720;
+        time->period->hours = fmod(time->period->hours, (double)720);
+    }
+}
+
 static void count_years(t_time *time)
 {
     if (time->period->hours >= 8760)
@@ -35,40 +43,29 @@ static void count_years(t_time *time)
     }
 }
 
-static void calc_time(t_time *time, int days)
+static void calc_time(t_time *time, int days, int period)
 {
     
     count_hours(time, days);
     if (days > 365)
         count_years(time);
+    count_months(time);
     count_days(time);
+    print_result(time, period);
 }
 
 int main(void)
 {
-	char	*line;
     t_time  time;
 
     init_struct(&time);
-    ft_printf("How old are you (years)?\n");
-    get_next_line(0, &line);
-    time.age = ft_atoi(line);
-    time.age = 80 - time.age;
-    free(line);
-    ft_printf("How much time do you spend on your phone daily (hours x.x)?\n");
-    get_next_line(0, &line);
-    time.hours = atof(line);
-    free(line);
-    ft_printf("You spend:\n");
-    calc_time(&time, 7);
-    ft_printf("weekly: %d days %.1f hours\n", time.period->days, time.period->hours);
-    calc_time(&time, 30);
-    ft_printf("monthly: %d days %.1f hours\n", time.period->days, time.period->hours);
-    calc_time(&time, 365);
-    ft_printf("yearly: %d days %.1f hours\n", time.period->days, time.period->hours);
-    calc_time(&time, (365 * time.age));
-    ft_printf("rest of your life: %d years %d days %.1f hours on your phone\n", time.period->years, time.period->days, time.period->hours);
-    ft_printf("*life expectancy 80\n");
+    read_input(&time);
+    ft_printf(BOLDYELLOW "You spend time on your phone:\n" RESET);
+    calc_time(&time, 7, 1);
+    calc_time(&time, 30, 2);
+    calc_time(&time, 365, 3);
+    calc_time(&time, (365 * time.age), 4);
+    ft_printf(BLUE "*life expectancy 80\n" RESET);
     free(time.period);
     return (0);
 }
