@@ -54,7 +54,7 @@ static void calc_time(t_time *time, int days, int period)
     print_result(time, period);
 }
 
-int main(void)
+int         main(void)
 {
     t_time  time;
 

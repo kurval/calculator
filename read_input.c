@@ -31,7 +31,7 @@ static void error_check(char **line, int err)
     }
 }
 
-void    read_input(t_time *time)
+void        read_input(t_time *time)
 {
     char	*line;
     int     ret;
