@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 11:32:55 by vkurkela          #+#    #+#             */
-/*   Updated: 2020/03/15 18:50:25 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/03/16 20:16:55 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_period
 {
 	double  hours;
     int     days;
-	int    months;
+	int    	months;
 	int		years;
 }				t_period;
 
